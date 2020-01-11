@@ -1,0 +1,26 @@
+Gitlet Design Document
+----------------------
+
+
+Classes and Data Structures
+---------------------------
+I have a class for blobs, branches, commands, and commits. I have a directory for blobs, branches, and commits.
+I also have a staging file,
+in which I add to keep track of what gets added and removed. By having seperate classes for blobs, branches, commands,
+and commits, I am able to keep track of everything in an organized manner.  If I want a specific commit, I can just
+look up it's commit sha1 ID and find it.  If I want a specific blob, I can just look up it's blob sha1 ID and find it.
+Regardless of what I want, I think it is very easy to access anything.
+
+Algorithms
+----------
+One algorithm that I use to keep track of all the commits and blobs is to always keep a commitHashMap and blobHashMap.
+Doing so, I can easily access blobs that pertain to specific commits.  Additionally,
+if I want to access any type of commit, I can easily just locate the commitHashMap and find whatever I want.
+
+
+Persistence
+-----------
+My code will persist into the future because it organizes things very neatly.  All the blobs that are added will be added to the blob directory.
+As a result, it will never lose track of anything in case someone tries to checkout an old commit.  Additionally,
+all of the branches and commits are stored as well.  I also utilize the sha1 ID, which has very little chance of error,
+and helps to keep everything as a seperate file name.
